@@ -1,0 +1,3 @@
+<?php
+	$DOCUMENTROOT = $_SERVER['DOCUMENT_ROOT'];
+?>

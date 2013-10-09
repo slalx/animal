@@ -1,0 +1,61 @@
+<?php
+/**
+ * Intreface DAO
+ *
+ * @author: http://phpdao.com
+ * @date: 2013-10-08 16:18
+ */
+interface DaoDemoDAO{
+
+	/**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $id primary key
+	 * @Return DaoDemo 
+	 */
+	public function load($id);
+
+	/**
+	 * Get all records from table
+	 */
+	public function queryAll();
+	
+	/**
+	 * Get all records from table ordered by field
+	 * @Param $orderColumn column name
+	 */
+	public function queryAllOrderBy($orderColumn);
+	
+	/**
+ 	 * Delete record from table
+ 	 * @param daoDemo primary key
+ 	 */
+	public function delete($id);
+	
+	/**
+ 	 * Insert record to table
+ 	 *
+ 	 * @param DaoDemo daoDemo
+ 	 */
+	public function insert($daoDemo);
+	
+	/**
+ 	 * Update record in table
+ 	 *
+ 	 * @param DaoDemo daoDemo
+ 	 */
+	public function update($daoDemo);	
+
+	/**
+	 * Delete all rows
+	 */
+	public function clean();
+
+	public function queryByName($value);
+
+
+	public function deleteByName($value);
+
+
+}
+?>
