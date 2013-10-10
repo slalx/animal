@@ -22,17 +22,6 @@
 							</ul>	
 						</li>
 						<li>
-							<a class="dropmenu" href="index.php#"><i class="icon-folder-close-alt"></i><span class="hidden-sm"> 人员管理</span> <span class="label">3</span></a>
-							<ul>
-								<li><a class="submenu" href="page-infrastructure.html"><i class="icon-hdd"></i><span class="hidden-sm"> Infrastructure</span></a></li>
-								<li><a class="submenu" href="page-inbox.html"><i class="icon-envelope"></i><span class="hidden-sm"> Inbox</span></a></li>
-								<li><a class="submenu" href="page-todo.html"><i class="icon-tasks"></i><span class="hidden-sm"> ToDo & Timeline</span></a></li>
-								<!-- Profile Page - Cooming Soone
-								<li><a class="submenu" href="page-profile.html"><i class="icon-male"></i><span class="hidden-sm"> User Profile</span></a></li>
-								-->
-							</ul>	
-						</li>
-						<li>
 							<a class="dropmenu" href="index.php#"><i class="icon-edit"></i><span class="hidden-sm"> 饲料管理</span> <span class="label">3</span></a>
 							<ul>
 								<li><a class="submenu" href="index.php?module=manage_fodder"><i class="icon-edit"></i><span class="hidden-sm"> 所有饲料</span></a></li>
@@ -47,13 +36,26 @@
 								<li><a class="submenu" href="index.php?module=add_drug"><i class="icon-list-alt"></i><span class="hidden-sm"> 买入兽药</span></a></li>
 								<li><a class="submenu" href="index.php?module=reduce_drug"><i class="icon-list-alt"></i><span class="hidden-sm"> 消耗兽药</span></a></li>
 							</ul>
-						
 						</li>
-						<li><a href="typography.html"><i class="icon-font"></i><span class="hidden-sm"> 免疫情况</span></a></li>
-						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-sm"> 消毒情况</span></a></li>
-						<li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-sm"> 状态管理</span></a></li>
-						<li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-sm"> Calendar</span></a></li>
-						<li><a href="file-manager.html"><i class="icon-folder-open"></i><span class="hidden-sm"> File Manager</span></a></li>
+						<li>
+							<a class="dropmenu" href="index.html#"><i class="icon-star"></i><span class="hidden-sm"> 营运记录</span> <span class="label">3</span></a>
+							<ul>
+								<li><a class="submenu" href="index.php?module=log_live_1"><i class="icon-star"></i><span class="hidden-sm"> 繁殖记录</span></a></li>
+								<li><a class="submenu" href="index.php?module=log_live_2"><i class="icon-star"></i><span class="hidden-sm"> 死亡记录</span></a></li>
+								<li><a class="submenu" href="index.php?module=log_live_3"><i class="icon-star"></i><span class="hidden-sm"> 出栏记录</span></a></li>
+							</ul>
+						</li>
+						<li>
+							<a class="dropmenu" href="index.php#"><i class="icon-folder-close-alt"></i><span class="hidden-sm"> 人员管理</span> <span class="label">3</span></a>
+							<ul>
+								<li><a class="submenu" href="page-infrastructure.html"><i class="icon-hdd"></i><span class="hidden-sm"> Infrastructure</span></a></li>
+								<li><a class="submenu" href="page-inbox.html"><i class="icon-envelope"></i><span class="hidden-sm"> Inbox</span></a></li>
+								<li><a class="submenu" href="page-todo.html"><i class="icon-tasks"></i><span class="hidden-sm"> ToDo & Timeline</span></a></li>
+								<!-- Profile Page - Cooming Soone
+								<li><a class="submenu" href="page-profile.html"><i class="icon-male"></i><span class="hidden-sm"> User Profile</span></a></li>
+								-->
+							</ul>	
+						</li>
 						<li>
 							<a class="dropmenu" href="index.html#"><i class="icon-star"></i><span class="hidden-sm"> 资产管理</span> <span class="label">3</span></a>
 							<ul>

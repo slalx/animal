@@ -2,83 +2,75 @@
 	<div class="col-lg-12">
 		<div class="box">
 			<div class="box-header">
-				<h2> <i class="icon-edit"></i>
+				<h2> <i class="icon-align-justify"></i>
+					<span class="break"></span>
 					添加耳标
 				</h2>
 				<div class="box-icon">
-					<a href="form-elements.html#" class="btn-setting"> <i class="icon-wrench"></i>
+					<a href="table.html#" class="btn-setting"> <i class="icon-wrench"></i>
 					</a>
-					<a href="form-elements.html#" class="btn-minimize">
+					<a href="table.html#" class="btn-minimize">
 						<i class="icon-chevron-up"></i>
 					</a>
-					<a href="form-elements.html#" class="btn-close">
-						<i class="icon-remove"></i>
+					<a href="table.html#" class="btn-add">
+						<i class="icon-plus"></i>
 					</a>
 				</div>
 			</div>
 			<div class="box-content">
-				<form class="form-horizontal">
-					<fieldset class="col-sm-12">
-					<div class="form-group">
-							<label class="control-label" for="date01">耳标编号</label>
-							<div class="controls row">
-								<div class="input-group date col-sm-4">
-									<input type="text" class="form-control"></div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="selectError3">所属品种</label>
-							<div class="controls">
-							  <select id="selectError3" class="form-control">
+				<table class="table table-bordered table-striped table-condensed">
+					<thead>
+						<tr>
+							<th>耳标编号</th>
+							<th>所属品种</th>
+							<th>所在棚</th>
+							<th>所在圈</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text" class="form-control"></div>
+						</td>
+						<td class="center">
+							<select id="selectError3" class="form-control">
 								<option value="1">小尾寒羊</option>
 								<option value="2">青山羊</option>
-							  </select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="selectError3">所在棚</label>
-							<div class="controls">
-							  <select id="selectError3" class="form-control">
+							</select>
+						</td>
+						<td class="center">
+							<select id="selectError3" class="form-control">
 								<option value="1">1号羊棚</option>
 								<option value="2">2号羊棚</option>
 								<option value="3">3号羊棚</option>
 								<option value="4">4号羊棚</option>
 								<option value="5">5号羊棚</option>
-							  </select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="selectError3">所在圈</label>
-							<div class="controls">
-							  <select id="selectError3" class="form-control">
+							</select>
+						</td>
+						<td class="center">
+							<select id="selectError3" class="form-control">
 								<option value="1">1号羊圈</option>
 								<option value="2">2号羊圈</option>
 								<option value="3">3号羊圈</option>
 								<option value="4">4号羊圈</option>
 								<option value="5">5号羊圈</option>
-							  </select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label" for="date01">日期</label>
-							<div class="controls row">
-								<div class="input-group date col-sm-4">
-									<span class="input-group-addon">
-										<i class="icon-calendar"></i>
-									</span>
-									<input type="text" class="form-control date-picker" id="date01" data-date-format="mm/dd/yyyy"></div>
-							</div>
-						</div>
-						<div class="form-actions">
-							<button type="submit" class="btn btn-primary">保存</button>
-							<button type="reset" class="btn">取消</button>
-						</div>
-					</fieldset>
-				</form>
-
+							</select>
+						</td>
+						<td class="center">
+							<a class="btn btn-danger" href="table.html#">
+											<i class="icon-trash "></i> 
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<button type="reset" class="btn">取消</button>
 			</div>
 		</div>
 	</div>
-	<!--/col-->
-
+</div>
+<!--/col-->
 </div>

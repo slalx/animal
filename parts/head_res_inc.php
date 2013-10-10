@@ -1,9 +1,9 @@
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>SimpliQ - Flat & Responsive Bootstrap Admin Template</title>
-	<meta name="description" content="SimpliQ - Flat & Responsive Bootstrap Admin Template.">
+	<title>养羊之家_养殖场信息管理系统</title>
+	<meta name="description" content="养羊之家_养殖场信息管理系统.">
 	<meta name="author" content="养羊之家">
-	<meta name="keyword" content="SimpliQ, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<meta name="keyword" content="养殖场信息管理系统">
 	<!-- end: Meta -->
 	
 	<!-- start: Mobile Specific -->

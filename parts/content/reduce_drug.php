@@ -45,6 +45,14 @@
 							</div>
 					</div>
 					<div class="form-group">
+							<label class="control-label" for="date01">应用范围</label>
+							<div class="controls row">
+								<div class="input-group date col-sm-4">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+					</div>
+					<div class="form-group">
 						<label class="control-label" for="date01">日期</label>
 						<div class="controls row">
 							<div class="input-group date col-sm-4">

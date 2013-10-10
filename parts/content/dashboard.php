@@ -5,8 +5,8 @@
 						<div class="boxchart-overlay blue">
 							<div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
 						</div>	
-						<span class="title">Clients</span>
-						<span class="value">4 589</span>
+						<span class="title">存栏</span>
+						<span class="value">19 999,99</span>
 					</div>
 				</div><!--/col-->
 				
@@ -15,7 +15,7 @@
 						<div class="boxchart-overlay red">
 							<div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
 						</div>	
-						<span class="title">Transactions</span>
+						<span class="title">出栏</span>
 						<span class="value">789</span>
 					</div>
 				</div><!--/col-->
@@ -23,16 +23,16 @@
 				<div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="smallstat box">
 						<i class="icon-download-alt green"></i>
-						<span class="title">Income</span>
-						<span class="value">$1 999,99</span>
+						<span class="title">生产</span>
+						<span class="value">1 999,99</span>
 					</div>
 				</div><!--/col-->
 				
 				<div class="col-lg-3 col-sm-6 col-xs-6 col-xxs-12">
 					<div class="smallstat box">
 						<i class="icon-money yellow"></i>
-						<span class="title">Account</span>
-						<span class="value">$19 999,99</span>
+						<span class="title">死亡</span>
+						<span class="value">19</span>
 					</div>
 				</div><!--/col-->
 			
