@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 interface AnimalTypeDAO{
 
@@ -51,20 +51,36 @@ interface AnimalTypeDAO{
 	 */
 	public function clean();
 
-	public function queryByName($value);
+	public function queryByTypeName($value);
+
+	public function queryByTypeAddress($value);
+
+	public function queryByTypeLive($value);
+
+	public function queryByTypeDesc($value);
+
+	public function queryByTypeDate($value);
 
 	public function queryByAnimCount($value);
 
-	public function queryByAnimFarmId($value);
+	public function queryByFarmId($value);
 
 	public function queryByCreateTime($value);
 
 
-	public function deleteByName($value);
+	public function deleteByTypeName($value);
+
+	public function deleteByTypeAddress($value);
+
+	public function deleteByTypeLive($value);
+
+	public function deleteByTypeDesc($value);
+
+	public function deleteByTypeDate($value);
 
 	public function deleteByAnimCount($value);
 
-	public function deleteByAnimFarmId($value);
+	public function deleteByFarmId($value);
 
 	public function deleteByCreateTime($value);
 

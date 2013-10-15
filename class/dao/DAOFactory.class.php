@@ -22,6 +22,13 @@ class DAOFactory{
 	}
 
 	/**
+	 * @return AnimalDrugTypeDAO
+	 */
+	public static function getAnimalDrugTypeDAO(){
+		return new AnimalDrugTypeMySqlExtDAO();
+	}
+
+	/**
 	 * @return AnimalEartagDAO
 	 */
 	public static function getAnimalEartagDAO(){
@@ -36,10 +43,24 @@ class DAOFactory{
 	}
 
 	/**
+	 * @return AnimalFarmTimelineDAO
+	 */
+	public static function getAnimalFarmTimelineDAO(){
+		return new AnimalFarmTimelineMySqlExtDAO();
+	}
+
+	/**
 	 * @return AnimalFodderDAO
 	 */
 	public static function getAnimalFodderDAO(){
 		return new AnimalFodderMySqlExtDAO();
+	}
+
+	/**
+	 * @return AnimalFodderTypeDAO
+	 */
+	public static function getAnimalFodderTypeDAO(){
+		return new AnimalFodderTypeMySqlExtDAO();
 	}
 
 	/**
@@ -54,6 +75,13 @@ class DAOFactory{
 	 */
 	public static function getAnimalJuanDAO(){
 		return new AnimalJuanMySqlExtDAO();
+	}
+
+	/**
+	 * @return AnimalLiveLogDAO
+	 */
+	public static function getAnimalLiveLogDAO(){
+		return new AnimalLiveLogMySqlExtDAO();
 	}
 
 	/**

@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_eartag'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 class AnimalEartagMySqlDAO implements AnimalEartagDAO{
 
@@ -57,10 +57,17 @@ class AnimalEartagMySqlDAO implements AnimalEartagDAO{
  	 * @param AnimalEartagMySql animalEartag
  	 */
 	public function insert($animalEartag){
-		$sql = 'INSERT INTO animal_eartag (serialnumber, farm_id, create_time) VALUES (?, ?, ?)';
+		$sql = 'INSERT INTO animal_eartag (serialnumber, juan_name, juan_id, peng_name, peng_id, type_name, type_id, farm_name, farm_id, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($animalEartag->serialnumber);
+		$sqlQuery->set($animalEartag->juanName);
+		$sqlQuery->set($animalEartag->juanId);
+		$sqlQuery->set($animalEartag->pengName);
+		$sqlQuery->set($animalEartag->pengId);
+		$sqlQuery->set($animalEartag->typeName);
+		$sqlQuery->set($animalEartag->typeId);
+		$sqlQuery->set($animalEartag->farmName);
 		$sqlQuery->set($animalEartag->farmId);
 		$sqlQuery->set($animalEartag->createTime);
 
@@ -75,10 +82,17 @@ class AnimalEartagMySqlDAO implements AnimalEartagDAO{
  	 * @param AnimalEartagMySql animalEartag
  	 */
 	public function update($animalEartag){
-		$sql = 'UPDATE animal_eartag SET serialnumber = ?, farm_id = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_eartag SET serialnumber = ?, juan_name = ?, juan_id = ?, peng_name = ?, peng_id = ?, type_name = ?, type_id = ?, farm_name = ?, farm_id = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($animalEartag->serialnumber);
+		$sqlQuery->set($animalEartag->juanName);
+		$sqlQuery->set($animalEartag->juanId);
+		$sqlQuery->set($animalEartag->pengName);
+		$sqlQuery->set($animalEartag->pengId);
+		$sqlQuery->set($animalEartag->typeName);
+		$sqlQuery->set($animalEartag->typeId);
+		$sqlQuery->set($animalEartag->farmName);
 		$sqlQuery->set($animalEartag->farmId);
 		$sqlQuery->set($animalEartag->createTime);
 
@@ -102,6 +116,55 @@ class AnimalEartagMySqlDAO implements AnimalEartagDAO{
 		return $this->getList($sqlQuery);
 	}
 
+	public function queryByJuanName($value){
+		$sql = 'SELECT * FROM animal_eartag WHERE juan_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByJuanId($value){
+		$sql = 'SELECT * FROM animal_eartag WHERE juan_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByPengName($value){
+		$sql = 'SELECT * FROM animal_eartag WHERE peng_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByPengId($value){
+		$sql = 'SELECT * FROM animal_eartag WHERE peng_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTypeName($value){
+		$sql = 'SELECT * FROM animal_eartag WHERE type_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTypeId($value){
+		$sql = 'SELECT * FROM animal_eartag WHERE type_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFarmName($value){
+		$sql = 'SELECT * FROM animal_eartag WHERE farm_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
 	public function queryByFarmId($value){
 		$sql = 'SELECT * FROM animal_eartag WHERE farm_id = ?';
 		$sqlQuery = new SqlQuery($sql);
@@ -119,6 +182,55 @@ class AnimalEartagMySqlDAO implements AnimalEartagDAO{
 
 	public function deleteBySerialnumber($value){
 		$sql = 'DELETE FROM animal_eartag WHERE serialnumber = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByJuanName($value){
+		$sql = 'DELETE FROM animal_eartag WHERE juan_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByJuanId($value){
+		$sql = 'DELETE FROM animal_eartag WHERE juan_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByPengName($value){
+		$sql = 'DELETE FROM animal_eartag WHERE peng_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByPengId($value){
+		$sql = 'DELETE FROM animal_eartag WHERE peng_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTypeName($value){
+		$sql = 'DELETE FROM animal_eartag WHERE type_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTypeId($value){
+		$sql = 'DELETE FROM animal_eartag WHERE type_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFarmName($value){
+		$sql = 'DELETE FROM animal_eartag WHERE farm_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -150,6 +262,13 @@ class AnimalEartagMySqlDAO implements AnimalEartagDAO{
 		
 		$animalEartag->id = $row['id'];
 		$animalEartag->serialnumber = $row['serialnumber'];
+		$animalEartag->juanName = $row['juan_name'];
+		$animalEartag->juanId = $row['juan_id'];
+		$animalEartag->pengName = $row['peng_name'];
+		$animalEartag->pengId = $row['peng_id'];
+		$animalEartag->typeName = $row['type_name'];
+		$animalEartag->typeId = $row['type_id'];
+		$animalEartag->farmName = $row['farm_name'];
 		$animalEartag->farmId = $row['farm_id'];
 		$animalEartag->createTime = $row['create_time'];
 

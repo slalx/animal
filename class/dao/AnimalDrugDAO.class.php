@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 interface AnimalDrugDAO{
 
@@ -51,30 +51,26 @@ interface AnimalDrugDAO{
 	 */
 	public function clean();
 
-	public function queryByName($value);
+	public function queryByDrugTypeId($value);
+
+	public function queryByDrugTypeName($value);
 
 	public function queryByDrugCount($value);
 
-	public function queryByDrugPrice($value);
-
-	public function queryByDrugSource($value);
-
-	public function queryByDragDesc($value);
+	public function queryByDrugStatus($value);
 
 	public function queryByFarmId($value);
 
 	public function queryByCreateTime($value);
 
 
-	public function deleteByName($value);
+	public function deleteByDrugTypeId($value);
+
+	public function deleteByDrugTypeName($value);
 
 	public function deleteByDrugCount($value);
 
-	public function deleteByDrugPrice($value);
-
-	public function deleteByDrugSource($value);
-
-	public function deleteByDragDesc($value);
+	public function deleteByDrugStatus($value);
 
 	public function deleteByFarmId($value);
 

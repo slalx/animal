@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_drug'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 class AnimalDrugMySqlDAO implements AnimalDrugDAO{
 
@@ -57,14 +57,13 @@ class AnimalDrugMySqlDAO implements AnimalDrugDAO{
  	 * @param AnimalDrugMySql animalDrug
  	 */
 	public function insert($animalDrug){
-		$sql = 'INSERT INTO animal_drug (name, drug_count, drug_price, drug_source, drag_desc, farm_id, create_time) VALUES (?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO animal_drug (drug_type_id, drug_type_name, drug_count, drug_status, farm_id, create_time) VALUES (?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalDrug->name);
+		$sqlQuery->set($animalDrug->drugTypeId);
+		$sqlQuery->set($animalDrug->drugTypeName);
 		$sqlQuery->set($animalDrug->drugCount);
-		$sqlQuery->set($animalDrug->drugPrice);
-		$sqlQuery->set($animalDrug->drugSource);
-		$sqlQuery->set($animalDrug->dragDesc);
+		$sqlQuery->setNumber($animalDrug->drugStatus);
 		$sqlQuery->set($animalDrug->farmId);
 		$sqlQuery->set($animalDrug->createTime);
 
@@ -79,14 +78,13 @@ class AnimalDrugMySqlDAO implements AnimalDrugDAO{
  	 * @param AnimalDrugMySql animalDrug
  	 */
 	public function update($animalDrug){
-		$sql = 'UPDATE animal_drug SET name = ?, drug_count = ?, drug_price = ?, drug_source = ?, drag_desc = ?, farm_id = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_drug SET drug_type_id = ?, drug_type_name = ?, drug_count = ?, drug_status = ?, farm_id = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalDrug->name);
+		$sqlQuery->set($animalDrug->drugTypeId);
+		$sqlQuery->set($animalDrug->drugTypeName);
 		$sqlQuery->set($animalDrug->drugCount);
-		$sqlQuery->set($animalDrug->drugPrice);
-		$sqlQuery->set($animalDrug->drugSource);
-		$sqlQuery->set($animalDrug->dragDesc);
+		$sqlQuery->setNumber($animalDrug->drugStatus);
 		$sqlQuery->set($animalDrug->farmId);
 		$sqlQuery->set($animalDrug->createTime);
 
@@ -103,8 +101,15 @@ class AnimalDrugMySqlDAO implements AnimalDrugDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function queryByName($value){
-		$sql = 'SELECT * FROM animal_drug WHERE name = ?';
+	public function queryByDrugTypeId($value){
+		$sql = 'SELECT * FROM animal_drug WHERE drug_type_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByDrugTypeName($value){
+		$sql = 'SELECT * FROM animal_drug WHERE drug_type_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -117,24 +122,10 @@ class AnimalDrugMySqlDAO implements AnimalDrugDAO{
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByDrugPrice($value){
-		$sql = 'SELECT * FROM animal_drug WHERE drug_price = ?';
+	public function queryByDrugStatus($value){
+		$sql = 'SELECT * FROM animal_drug WHERE drug_status = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
-	}
-
-	public function queryByDrugSource($value){
-		$sql = 'SELECT * FROM animal_drug WHERE drug_source = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
-	}
-
-	public function queryByDragDesc($value){
-		$sql = 'SELECT * FROM animal_drug WHERE drag_desc = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
+		$sqlQuery->setNumber($value);
 		return $this->getList($sqlQuery);
 	}
 
@@ -153,8 +144,15 @@ class AnimalDrugMySqlDAO implements AnimalDrugDAO{
 	}
 
 
-	public function deleteByName($value){
-		$sql = 'DELETE FROM animal_drug WHERE name = ?';
+	public function deleteByDrugTypeId($value){
+		$sql = 'DELETE FROM animal_drug WHERE drug_type_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByDrugTypeName($value){
+		$sql = 'DELETE FROM animal_drug WHERE drug_type_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -167,24 +165,10 @@ class AnimalDrugMySqlDAO implements AnimalDrugDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByDrugPrice($value){
-		$sql = 'DELETE FROM animal_drug WHERE drug_price = ?';
+	public function deleteByDrugStatus($value){
+		$sql = 'DELETE FROM animal_drug WHERE drug_status = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
-		return $this->executeUpdate($sqlQuery);
-	}
-
-	public function deleteByDrugSource($value){
-		$sql = 'DELETE FROM animal_drug WHERE drug_source = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
-		return $this->executeUpdate($sqlQuery);
-	}
-
-	public function deleteByDragDesc($value){
-		$sql = 'DELETE FROM animal_drug WHERE drag_desc = ?';
-		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($value);
+		$sqlQuery->setNumber($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
@@ -213,11 +197,10 @@ class AnimalDrugMySqlDAO implements AnimalDrugDAO{
 		$animalDrug = new AnimalDrug();
 		
 		$animalDrug->id = $row['id'];
-		$animalDrug->name = $row['name'];
+		$animalDrug->drugTypeId = $row['drug_type_id'];
+		$animalDrug->drugTypeName = $row['drug_type_name'];
 		$animalDrug->drugCount = $row['drug_count'];
-		$animalDrug->drugPrice = $row['drug_price'];
-		$animalDrug->drugSource = $row['drug_source'];
-		$animalDrug->dragDesc = $row['drag_desc'];
+		$animalDrug->drugStatus = $row['drug_status'];
 		$animalDrug->farmId = $row['farm_id'];
 		$animalDrug->createTime = $row['create_time'];
 

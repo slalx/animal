@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_type'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 class AnimalTypeMySqlDAO implements AnimalTypeDAO{
 
@@ -57,12 +57,16 @@ class AnimalTypeMySqlDAO implements AnimalTypeDAO{
  	 * @param AnimalTypeMySql animalType
  	 */
 	public function insert($animalType){
-		$sql = 'INSERT INTO animal_type (name, anim_count, anim_farm_id, create_time) VALUES (?, ?, ?, ?)';
+		$sql = 'INSERT INTO animal_type (type_name, type_address, type_live, type_desc, type_date, anim_count, farm_id, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalType->name);
+		$sqlQuery->set($animalType->typeName);
+		$sqlQuery->set($animalType->typeAddress);
+		$sqlQuery->set($animalType->typeLive);
+		$sqlQuery->set($animalType->typeDesc);
+		$sqlQuery->set($animalType->typeDate);
 		$sqlQuery->set($animalType->animCount);
-		$sqlQuery->set($animalType->animFarmId);
+		$sqlQuery->set($animalType->farmId);
 		$sqlQuery->set($animalType->createTime);
 
 		$id = $this->executeInsert($sqlQuery);	
@@ -76,12 +80,16 @@ class AnimalTypeMySqlDAO implements AnimalTypeDAO{
  	 * @param AnimalTypeMySql animalType
  	 */
 	public function update($animalType){
-		$sql = 'UPDATE animal_type SET name = ?, anim_count = ?, anim_farm_id = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_type SET type_name = ?, type_address = ?, type_live = ?, type_desc = ?, type_date = ?, anim_count = ?, farm_id = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalType->name);
+		$sqlQuery->set($animalType->typeName);
+		$sqlQuery->set($animalType->typeAddress);
+		$sqlQuery->set($animalType->typeLive);
+		$sqlQuery->set($animalType->typeDesc);
+		$sqlQuery->set($animalType->typeDate);
 		$sqlQuery->set($animalType->animCount);
-		$sqlQuery->set($animalType->animFarmId);
+		$sqlQuery->set($animalType->farmId);
 		$sqlQuery->set($animalType->createTime);
 
 		$sqlQuery->set($animalType->id);
@@ -97,8 +105,36 @@ class AnimalTypeMySqlDAO implements AnimalTypeDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function queryByName($value){
-		$sql = 'SELECT * FROM animal_type WHERE name = ?';
+	public function queryByTypeName($value){
+		$sql = 'SELECT * FROM animal_type WHERE type_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTypeAddress($value){
+		$sql = 'SELECT * FROM animal_type WHERE type_address = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTypeLive($value){
+		$sql = 'SELECT * FROM animal_type WHERE type_live = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTypeDesc($value){
+		$sql = 'SELECT * FROM animal_type WHERE type_desc = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTypeDate($value){
+		$sql = 'SELECT * FROM animal_type WHERE type_date = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -111,8 +147,8 @@ class AnimalTypeMySqlDAO implements AnimalTypeDAO{
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByAnimFarmId($value){
-		$sql = 'SELECT * FROM animal_type WHERE anim_farm_id = ?';
+	public function queryByFarmId($value){
+		$sql = 'SELECT * FROM animal_type WHERE farm_id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -126,8 +162,36 @@ class AnimalTypeMySqlDAO implements AnimalTypeDAO{
 	}
 
 
-	public function deleteByName($value){
-		$sql = 'DELETE FROM animal_type WHERE name = ?';
+	public function deleteByTypeName($value){
+		$sql = 'DELETE FROM animal_type WHERE type_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTypeAddress($value){
+		$sql = 'DELETE FROM animal_type WHERE type_address = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTypeLive($value){
+		$sql = 'DELETE FROM animal_type WHERE type_live = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTypeDesc($value){
+		$sql = 'DELETE FROM animal_type WHERE type_desc = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTypeDate($value){
+		$sql = 'DELETE FROM animal_type WHERE type_date = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -140,8 +204,8 @@ class AnimalTypeMySqlDAO implements AnimalTypeDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByAnimFarmId($value){
-		$sql = 'DELETE FROM animal_type WHERE anim_farm_id = ?';
+	public function deleteByFarmId($value){
+		$sql = 'DELETE FROM animal_type WHERE farm_id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -165,9 +229,13 @@ class AnimalTypeMySqlDAO implements AnimalTypeDAO{
 		$animalType = new AnimalType();
 		
 		$animalType->id = $row['id'];
-		$animalType->name = $row['name'];
+		$animalType->typeName = $row['type_name'];
+		$animalType->typeAddress = $row['type_address'];
+		$animalType->typeLive = $row['type_live'];
+		$animalType->typeDesc = $row['type_desc'];
+		$animalType->typeDate = $row['type_date'];
 		$animalType->animCount = $row['anim_count'];
-		$animalType->animFarmId = $row['anim_farm_id'];
+		$animalType->farmId = $row['farm_id'];
 		$animalType->createTime = $row['create_time'];
 
 		return $animalType;

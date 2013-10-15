@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_peng'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 class AnimalPengMySqlDAO implements AnimalPengDAO{
 
@@ -57,11 +57,11 @@ class AnimalPengMySqlDAO implements AnimalPengDAO{
  	 * @param AnimalPengMySql animalPeng
  	 */
 	public function insert($animalPeng){
-		$sql = 'INSERT INTO animal_peng (serialnumber, name, farm_id, create_time) VALUES (?, ?, ?, ?)';
+		$sql = 'INSERT INTO animal_peng (serialnumber, peng_name, farm_id, create_time) VALUES (?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($animalPeng->serialnumber);
-		$sqlQuery->set($animalPeng->name);
+		$sqlQuery->set($animalPeng->pengName);
 		$sqlQuery->set($animalPeng->farmId);
 		$sqlQuery->set($animalPeng->createTime);
 
@@ -76,11 +76,11 @@ class AnimalPengMySqlDAO implements AnimalPengDAO{
  	 * @param AnimalPengMySql animalPeng
  	 */
 	public function update($animalPeng){
-		$sql = 'UPDATE animal_peng SET serialnumber = ?, name = ?, farm_id = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_peng SET serialnumber = ?, peng_name = ?, farm_id = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($animalPeng->serialnumber);
-		$sqlQuery->set($animalPeng->name);
+		$sqlQuery->set($animalPeng->pengName);
 		$sqlQuery->set($animalPeng->farmId);
 		$sqlQuery->set($animalPeng->createTime);
 
@@ -104,8 +104,8 @@ class AnimalPengMySqlDAO implements AnimalPengDAO{
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByName($value){
-		$sql = 'SELECT * FROM animal_peng WHERE name = ?';
+	public function queryByPengName($value){
+		$sql = 'SELECT * FROM animal_peng WHERE peng_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -133,8 +133,8 @@ class AnimalPengMySqlDAO implements AnimalPengDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByName($value){
-		$sql = 'DELETE FROM animal_peng WHERE name = ?';
+	public function deleteByPengName($value){
+		$sql = 'DELETE FROM animal_peng WHERE peng_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -166,7 +166,7 @@ class AnimalPengMySqlDAO implements AnimalPengDAO{
 		
 		$animalPeng->id = $row['id'];
 		$animalPeng->serialnumber = $row['serialnumber'];
-		$animalPeng->name = $row['name'];
+		$animalPeng->pengName = $row['peng_name'];
 		$animalPeng->farmId = $row['farm_id'];
 		$animalPeng->createTime = $row['create_time'];
 

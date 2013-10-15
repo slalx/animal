@@ -17,13 +17,13 @@
 				</div>
 			</div>
 			<div class="box-content">
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="/control/save_type.php" method="post">
 					<fieldset class="col-sm-12">
 					<div class="form-group">
 							<label class="control-label" for="date01">品种名称</label>
 							<div class="controls row">
 								<div class="input-group date col-sm-4">
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" name="type_name">
 								</div>
 							</div>
 					</div>
@@ -31,7 +31,7 @@
 							<label class="control-label" for="date01">原产地</label>
 							<div class="controls row">
 								<div class="input-group date col-sm-4">
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" name="type_address">
 								</div>
 							</div>
 					</div>
@@ -39,7 +39,7 @@
 							<label class="control-label" for="date01">生活习性</label>
 							<div class="controls row">
 								<div class="input-group date col-sm-4">
-									<textarea type="text" class="form-control"></textarea>
+									<textarea type="text" class="form-control" name="type_live"></textarea>
 								</div>
 							</div>
 					</div>
@@ -47,7 +47,7 @@
 							<label class="control-label" for="date01">简介</label>
 							<div class="controls row">
 								<div class="input-group date col-sm-4">
-									<textarea type="text" class="form-control"></textarea>
+									<textarea type="text" class="form-control" name="type_desc"></textarea>
 								</div>
 							</div>
 					</div>
@@ -58,7 +58,7 @@
 									<span class="input-group-addon">
 										<i class="icon-calendar"></i>
 									</span>
-									<input type="text" class="form-control date-picker" id="date01" data-date-format="mm/dd/yyyy"></div>
+									<input type="text" class="form-control date-picker" id="date01" name="type_adddate" data-date-format="mm/dd/yyyy"></div>
 							</div>
 						</div>
 						<div class="form-actions">

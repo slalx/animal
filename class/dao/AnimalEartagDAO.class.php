@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 interface AnimalEartagDAO{
 
@@ -53,12 +53,40 @@ interface AnimalEartagDAO{
 
 	public function queryBySerialnumber($value);
 
+	public function queryByJuanName($value);
+
+	public function queryByJuanId($value);
+
+	public function queryByPengName($value);
+
+	public function queryByPengId($value);
+
+	public function queryByTypeName($value);
+
+	public function queryByTypeId($value);
+
+	public function queryByFarmName($value);
+
 	public function queryByFarmId($value);
 
 	public function queryByCreateTime($value);
 
 
 	public function deleteBySerialnumber($value);
+
+	public function deleteByJuanName($value);
+
+	public function deleteByJuanId($value);
+
+	public function deleteByPengName($value);
+
+	public function deleteByPengId($value);
+
+	public function deleteByTypeName($value);
+
+	public function deleteByTypeId($value);
+
+	public function deleteByFarmName($value);
 
 	public function deleteByFarmId($value);
 

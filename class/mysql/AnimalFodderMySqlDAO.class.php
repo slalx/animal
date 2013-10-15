@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_fodder'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 
@@ -57,11 +57,12 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
  	 * @param AnimalFodderMySql animalFodder
  	 */
 	public function insert($animalFodder){
-		$sql = 'INSERT INTO animal_fodder (name, additive, fodder_count, fodder_price, farm_id, fodder_status, create_time) VALUES (?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO animal_fodder (fodder_type_id, fodder_type_name, fodder_additive, fodder_count, fodder_price, farm_id, fodder_status, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalFodder->name);
-		$sqlQuery->set($animalFodder->additive);
+		$sqlQuery->set($animalFodder->fodderTypeId);
+		$sqlQuery->set($animalFodder->fodderTypeName);
+		$sqlQuery->set($animalFodder->fodderAdditive);
 		$sqlQuery->set($animalFodder->fodderCount);
 		$sqlQuery->set($animalFodder->fodderPrice);
 		$sqlQuery->set($animalFodder->farmId);
@@ -79,11 +80,12 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
  	 * @param AnimalFodderMySql animalFodder
  	 */
 	public function update($animalFodder){
-		$sql = 'UPDATE animal_fodder SET name = ?, additive = ?, fodder_count = ?, fodder_price = ?, farm_id = ?, fodder_status = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_fodder SET fodder_type_id = ?, fodder_type_name = ?, fodder_additive = ?, fodder_count = ?, fodder_price = ?, farm_id = ?, fodder_status = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalFodder->name);
-		$sqlQuery->set($animalFodder->additive);
+		$sqlQuery->set($animalFodder->fodderTypeId);
+		$sqlQuery->set($animalFodder->fodderTypeName);
+		$sqlQuery->set($animalFodder->fodderAdditive);
 		$sqlQuery->set($animalFodder->fodderCount);
 		$sqlQuery->set($animalFodder->fodderPrice);
 		$sqlQuery->set($animalFodder->farmId);
@@ -103,15 +105,22 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function queryByName($value){
-		$sql = 'SELECT * FROM animal_fodder WHERE name = ?';
+	public function queryByFodderTypeId($value){
+		$sql = 'SELECT * FROM animal_fodder WHERE fodder_type_id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByAdditive($value){
-		$sql = 'SELECT * FROM animal_fodder WHERE additive = ?';
+	public function queryByFodderTypeName($value){
+		$sql = 'SELECT * FROM animal_fodder WHERE fodder_type_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFodderAdditive($value){
+		$sql = 'SELECT * FROM animal_fodder WHERE fodder_additive = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -153,15 +162,22 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 	}
 
 
-	public function deleteByName($value){
-		$sql = 'DELETE FROM animal_fodder WHERE name = ?';
+	public function deleteByFodderTypeId($value){
+		$sql = 'DELETE FROM animal_fodder WHERE fodder_type_id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByAdditive($value){
-		$sql = 'DELETE FROM animal_fodder WHERE additive = ?';
+	public function deleteByFodderTypeName($value){
+		$sql = 'DELETE FROM animal_fodder WHERE fodder_type_name = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFodderAdditive($value){
+		$sql = 'DELETE FROM animal_fodder WHERE fodder_additive = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -213,8 +229,9 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 		$animalFodder = new AnimalFodder();
 		
 		$animalFodder->id = $row['id'];
-		$animalFodder->name = $row['name'];
-		$animalFodder->additive = $row['additive'];
+		$animalFodder->fodderTypeId = $row['fodder_type_id'];
+		$animalFodder->fodderTypeName = $row['fodder_type_name'];
+		$animalFodder->fodderAdditive = $row['fodder_additive'];
 		$animalFodder->fodderCount = $row['fodder_count'];
 		$animalFodder->fodderPrice = $row['fodder_price'];
 		$animalFodder->farmId = $row['farm_id'];

@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 interface AnimalPengDAO{
 
@@ -53,7 +53,7 @@ interface AnimalPengDAO{
 
 	public function queryBySerialnumber($value);
 
-	public function queryByName($value);
+	public function queryByPengName($value);
 
 	public function queryByFarmId($value);
 
@@ -62,7 +62,7 @@ interface AnimalPengDAO{
 
 	public function deleteBySerialnumber($value);
 
-	public function deleteByName($value);
+	public function deleteByPengName($value);
 
 	public function deleteByFarmId($value);
 

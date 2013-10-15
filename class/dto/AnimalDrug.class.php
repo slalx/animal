@@ -3,16 +3,15 @@
 	 * Object represents table 'animal_drug'
 	 *
      	 * @author: http://phpdao.com
-     	 * @date: 2013-10-08 16:22	 
+     	 * @date: 2013-10-14 22:29	 
 	 */
 	class AnimalDrug{
 		
 		var $id;
-		var $name;
+		var $drugTypeId;
+		var $drugTypeName;
 		var $drugCount;
-		var $drugPrice;
-		var $drugSource;
-		var $dragDesc;
+		var $drugStatus;
 		var $farmId;
 		var $createTime;
 		

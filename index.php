@@ -1,4 +1,9 @@
+<?php
+session_start();
+// store session data
+$_SESSION['ANIMAL_FARM_ID']='976565';
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,6 +59,8 @@
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	
+
+
 
 	
 <?php require_once($DOCUMENTROOT.'/parts/footer_inc.php'); ?>

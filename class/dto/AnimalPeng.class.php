@@ -3,13 +3,13 @@
 	 * Object represents table 'animal_peng'
 	 *
      	 * @author: http://phpdao.com
-     	 * @date: 2013-10-08 16:22	 
+     	 * @date: 2013-10-14 22:30	 
 	 */
 	class AnimalPeng{
 		
 		var $id;
 		var $serialnumber;
-		var $name;
+		var $pengName;
 		var $farmId;
 		var $createTime;
 		

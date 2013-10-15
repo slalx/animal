@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_farm'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-08 16:22
+ * @date: 2013-10-14 22:30
  */
 class AnimalFarmMySqlDAO implements AnimalFarmDAO{
 
@@ -57,14 +57,14 @@ class AnimalFarmMySqlDAO implements AnimalFarmDAO{
  	 * @param AnimalFarmMySql animalFarm
  	 */
 	public function insert($animalFarm){
-		$sql = 'INSERT INTO animal_farm (telephone, legalperson, name, address, password, create_time) VALUES (?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO animal_farm (farm_telephone, farm_legalperson, farm_name, farm_address, farm_password, create_time) VALUES (?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalFarm->telephone);
-		$sqlQuery->set($animalFarm->legalperson);
-		$sqlQuery->set($animalFarm->name);
-		$sqlQuery->set($animalFarm->address);
-		$sqlQuery->set($animalFarm->password);
+		$sqlQuery->set($animalFarm->farmTelephone);
+		$sqlQuery->set($animalFarm->farmLegalperson);
+		$sqlQuery->set($animalFarm->farmName);
+		$sqlQuery->set($animalFarm->farmAddress);
+		$sqlQuery->set($animalFarm->farmPassword);
 		$sqlQuery->set($animalFarm->createTime);
 
 		$id = $this->executeInsert($sqlQuery);	
@@ -78,14 +78,14 @@ class AnimalFarmMySqlDAO implements AnimalFarmDAO{
  	 * @param AnimalFarmMySql animalFarm
  	 */
 	public function update($animalFarm){
-		$sql = 'UPDATE animal_farm SET telephone = ?, legalperson = ?, name = ?, address = ?, password = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_farm SET farm_telephone = ?, farm_legalperson = ?, farm_name = ?, farm_address = ?, farm_password = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalFarm->telephone);
-		$sqlQuery->set($animalFarm->legalperson);
-		$sqlQuery->set($animalFarm->name);
-		$sqlQuery->set($animalFarm->address);
-		$sqlQuery->set($animalFarm->password);
+		$sqlQuery->set($animalFarm->farmTelephone);
+		$sqlQuery->set($animalFarm->farmLegalperson);
+		$sqlQuery->set($animalFarm->farmName);
+		$sqlQuery->set($animalFarm->farmAddress);
+		$sqlQuery->set($animalFarm->farmPassword);
 		$sqlQuery->set($animalFarm->createTime);
 
 		$sqlQuery->set($animalFarm->id);
@@ -101,36 +101,36 @@ class AnimalFarmMySqlDAO implements AnimalFarmDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function queryByTelephone($value){
-		$sql = 'SELECT * FROM animal_farm WHERE telephone = ?';
+	public function queryByFarmTelephone($value){
+		$sql = 'SELECT * FROM animal_farm WHERE farm_telephone = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByLegalperson($value){
-		$sql = 'SELECT * FROM animal_farm WHERE legalperson = ?';
+	public function queryByFarmLegalperson($value){
+		$sql = 'SELECT * FROM animal_farm WHERE farm_legalperson = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByName($value){
-		$sql = 'SELECT * FROM animal_farm WHERE name = ?';
+	public function queryByFarmName($value){
+		$sql = 'SELECT * FROM animal_farm WHERE farm_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByAddress($value){
-		$sql = 'SELECT * FROM animal_farm WHERE address = ?';
+	public function queryByFarmAddress($value){
+		$sql = 'SELECT * FROM animal_farm WHERE farm_address = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByPassword($value){
-		$sql = 'SELECT * FROM animal_farm WHERE password = ?';
+	public function queryByFarmPassword($value){
+		$sql = 'SELECT * FROM animal_farm WHERE farm_password = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -144,36 +144,36 @@ class AnimalFarmMySqlDAO implements AnimalFarmDAO{
 	}
 
 
-	public function deleteByTelephone($value){
-		$sql = 'DELETE FROM animal_farm WHERE telephone = ?';
+	public function deleteByFarmTelephone($value){
+		$sql = 'DELETE FROM animal_farm WHERE farm_telephone = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByLegalperson($value){
-		$sql = 'DELETE FROM animal_farm WHERE legalperson = ?';
+	public function deleteByFarmLegalperson($value){
+		$sql = 'DELETE FROM animal_farm WHERE farm_legalperson = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByName($value){
-		$sql = 'DELETE FROM animal_farm WHERE name = ?';
+	public function deleteByFarmName($value){
+		$sql = 'DELETE FROM animal_farm WHERE farm_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByAddress($value){
-		$sql = 'DELETE FROM animal_farm WHERE address = ?';
+	public function deleteByFarmAddress($value){
+		$sql = 'DELETE FROM animal_farm WHERE farm_address = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByPassword($value){
-		$sql = 'DELETE FROM animal_farm WHERE password = ?';
+	public function deleteByFarmPassword($value){
+		$sql = 'DELETE FROM animal_farm WHERE farm_password = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -197,11 +197,11 @@ class AnimalFarmMySqlDAO implements AnimalFarmDAO{
 		$animalFarm = new AnimalFarm();
 		
 		$animalFarm->id = $row['id'];
-		$animalFarm->telephone = $row['telephone'];
-		$animalFarm->legalperson = $row['legalperson'];
-		$animalFarm->name = $row['name'];
-		$animalFarm->address = $row['address'];
-		$animalFarm->password = $row['password'];
+		$animalFarm->farmTelephone = $row['farm_telephone'];
+		$animalFarm->farmLegalperson = $row['farm_legalperson'];
+		$animalFarm->farmName = $row['farm_name'];
+		$animalFarm->farmAddress = $row['farm_address'];
+		$animalFarm->farmPassword = $row['farm_password'];
 		$animalFarm->createTime = $row['create_time'];
 
 		return $animalFarm;
