@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_fodder'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-14 22:30
+ * @date: 2013-10-16 22:39
  */
 class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 
@@ -57,16 +57,17 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
  	 * @param AnimalFodderMySql animalFodder
  	 */
 	public function insert($animalFodder){
-		$sql = 'INSERT INTO animal_fodder (fodder_type_id, fodder_type_name, fodder_additive, fodder_count, fodder_price, farm_id, fodder_status, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO animal_fodder (fodder_type_id, fodder_type_name, fodder_unit, fodder_count, fodder_price, farm_id, fodder_status, create_date, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($animalFodder->fodderTypeId);
 		$sqlQuery->set($animalFodder->fodderTypeName);
-		$sqlQuery->set($animalFodder->fodderAdditive);
+		$sqlQuery->set($animalFodder->fodderUnit);
 		$sqlQuery->set($animalFodder->fodderCount);
 		$sqlQuery->set($animalFodder->fodderPrice);
 		$sqlQuery->set($animalFodder->farmId);
 		$sqlQuery->setNumber($animalFodder->fodderStatus);
+		$sqlQuery->set($animalFodder->createDate);
 		$sqlQuery->set($animalFodder->createTime);
 
 		$id = $this->executeInsert($sqlQuery);	
@@ -80,16 +81,17 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
  	 * @param AnimalFodderMySql animalFodder
  	 */
 	public function update($animalFodder){
-		$sql = 'UPDATE animal_fodder SET fodder_type_id = ?, fodder_type_name = ?, fodder_additive = ?, fodder_count = ?, fodder_price = ?, farm_id = ?, fodder_status = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_fodder SET fodder_type_id = ?, fodder_type_name = ?, fodder_unit = ?, fodder_count = ?, fodder_price = ?, farm_id = ?, fodder_status = ?, create_date = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($animalFodder->fodderTypeId);
 		$sqlQuery->set($animalFodder->fodderTypeName);
-		$sqlQuery->set($animalFodder->fodderAdditive);
+		$sqlQuery->set($animalFodder->fodderUnit);
 		$sqlQuery->set($animalFodder->fodderCount);
 		$sqlQuery->set($animalFodder->fodderPrice);
 		$sqlQuery->set($animalFodder->farmId);
 		$sqlQuery->setNumber($animalFodder->fodderStatus);
+		$sqlQuery->set($animalFodder->createDate);
 		$sqlQuery->set($animalFodder->createTime);
 
 		$sqlQuery->set($animalFodder->id);
@@ -119,8 +121,8 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryByFodderAdditive($value){
-		$sql = 'SELECT * FROM animal_fodder WHERE fodder_additive = ?';
+	public function queryByFodderUnit($value){
+		$sql = 'SELECT * FROM animal_fodder WHERE fodder_unit = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -154,6 +156,13 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 		return $this->getList($sqlQuery);
 	}
 
+	public function queryByCreateDate($value){
+		$sql = 'SELECT * FROM animal_fodder WHERE create_date = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
 	public function queryByCreateTime($value){
 		$sql = 'SELECT * FROM animal_fodder WHERE create_time = ?';
 		$sqlQuery = new SqlQuery($sql);
@@ -176,8 +185,8 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteByFodderAdditive($value){
-		$sql = 'DELETE FROM animal_fodder WHERE fodder_additive = ?';
+	public function deleteByFodderUnit($value){
+		$sql = 'DELETE FROM animal_fodder WHERE fodder_unit = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -211,6 +220,13 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
+	public function deleteByCreateDate($value){
+		$sql = 'DELETE FROM animal_fodder WHERE create_date = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
 	public function deleteByCreateTime($value){
 		$sql = 'DELETE FROM animal_fodder WHERE create_time = ?';
 		$sqlQuery = new SqlQuery($sql);
@@ -231,11 +247,12 @@ class AnimalFodderMySqlDAO implements AnimalFodderDAO{
 		$animalFodder->id = $row['id'];
 		$animalFodder->fodderTypeId = $row['fodder_type_id'];
 		$animalFodder->fodderTypeName = $row['fodder_type_name'];
-		$animalFodder->fodderAdditive = $row['fodder_additive'];
+		$animalFodder->fodderUnit = $row['fodder_unit'];
 		$animalFodder->fodderCount = $row['fodder_count'];
 		$animalFodder->fodderPrice = $row['fodder_price'];
 		$animalFodder->farmId = $row['farm_id'];
 		$animalFodder->fodderStatus = $row['fodder_status'];
+		$animalFodder->createDate = $row['create_date'];
 		$animalFodder->createTime = $row['create_time'];
 
 		return $animalFodder;

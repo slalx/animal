@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2013-10-14 22:30
+ * @date: 2013-10-16 22:39
  */
 interface AnimalFodderDAO{
 
@@ -55,7 +55,7 @@ interface AnimalFodderDAO{
 
 	public function queryByFodderTypeName($value);
 
-	public function queryByFodderAdditive($value);
+	public function queryByFodderUnit($value);
 
 	public function queryByFodderCount($value);
 
@@ -65,6 +65,8 @@ interface AnimalFodderDAO{
 
 	public function queryByFodderStatus($value);
 
+	public function queryByCreateDate($value);
+
 	public function queryByCreateTime($value);
 
 
@@ -72,7 +74,7 @@ interface AnimalFodderDAO{
 
 	public function deleteByFodderTypeName($value);
 
-	public function deleteByFodderAdditive($value);
+	public function deleteByFodderUnit($value);
 
 	public function deleteByFodderCount($value);
 
@@ -81,6 +83,8 @@ interface AnimalFodderDAO{
 	public function deleteByFarmId($value);
 
 	public function deleteByFodderStatus($value);
+
+	public function deleteByCreateDate($value);
 
 	public function deleteByCreateTime($value);
 

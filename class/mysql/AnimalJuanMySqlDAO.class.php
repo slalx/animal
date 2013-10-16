@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_juan'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-14 22:30
+ * @date: 2013-10-16 22:39
  */
 class AnimalJuanMySqlDAO implements AnimalJuanDAO{
 
@@ -57,11 +57,11 @@ class AnimalJuanMySqlDAO implements AnimalJuanDAO{
  	 * @param AnimalJuanMySql animalJuan
  	 */
 	public function insert($animalJuan){
-		$sql = 'INSERT INTO animal_juan (name, serialnumber, animal_farm_id, animal_peng_id, create_time) VALUES (?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO animal_juan (juan_name, juan_serialnumber, animal_farm_id, animal_peng_id, create_time) VALUES (?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalJuan->name);
-		$sqlQuery->set($animalJuan->serialnumber);
+		$sqlQuery->set($animalJuan->juanName);
+		$sqlQuery->set($animalJuan->juanSerialnumber);
 		$sqlQuery->set($animalJuan->animalFarmId);
 		$sqlQuery->set($animalJuan->animalPengId);
 		$sqlQuery->set($animalJuan->createTime);
@@ -77,11 +77,11 @@ class AnimalJuanMySqlDAO implements AnimalJuanDAO{
  	 * @param AnimalJuanMySql animalJuan
  	 */
 	public function update($animalJuan){
-		$sql = 'UPDATE animal_juan SET name = ?, serialnumber = ?, animal_farm_id = ?, animal_peng_id = ?, create_time = ? WHERE id = ?';
+		$sql = 'UPDATE animal_juan SET juan_name = ?, juan_serialnumber = ?, animal_farm_id = ?, animal_peng_id = ?, create_time = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($animalJuan->name);
-		$sqlQuery->set($animalJuan->serialnumber);
+		$sqlQuery->set($animalJuan->juanName);
+		$sqlQuery->set($animalJuan->juanSerialnumber);
 		$sqlQuery->set($animalJuan->animalFarmId);
 		$sqlQuery->set($animalJuan->animalPengId);
 		$sqlQuery->set($animalJuan->createTime);
@@ -99,15 +99,15 @@ class AnimalJuanMySqlDAO implements AnimalJuanDAO{
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function queryByName($value){
-		$sql = 'SELECT * FROM animal_juan WHERE name = ?';
+	public function queryByJuanName($value){
+		$sql = 'SELECT * FROM animal_juan WHERE juan_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
 	}
 
-	public function queryBySerialnumber($value){
-		$sql = 'SELECT * FROM animal_juan WHERE serialnumber = ?';
+	public function queryByJuanSerialnumber($value){
+		$sql = 'SELECT * FROM animal_juan WHERE juan_serialnumber = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
@@ -135,15 +135,15 @@ class AnimalJuanMySqlDAO implements AnimalJuanDAO{
 	}
 
 
-	public function deleteByName($value){
-		$sql = 'DELETE FROM animal_juan WHERE name = ?';
+	public function deleteByJuanName($value){
+		$sql = 'DELETE FROM animal_juan WHERE juan_name = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
 
-	public function deleteBySerialnumber($value){
-		$sql = 'DELETE FROM animal_juan WHERE serialnumber = ?';
+	public function deleteByJuanSerialnumber($value){
+		$sql = 'DELETE FROM animal_juan WHERE juan_serialnumber = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
@@ -181,8 +181,8 @@ class AnimalJuanMySqlDAO implements AnimalJuanDAO{
 		$animalJuan = new AnimalJuan();
 		
 		$animalJuan->id = $row['id'];
-		$animalJuan->name = $row['name'];
-		$animalJuan->serialnumber = $row['serialnumber'];
+		$animalJuan->juanName = $row['juan_name'];
+		$animalJuan->juanSerialnumber = $row['juan_serialnumber'];
 		$animalJuan->animalFarmId = $row['animal_farm_id'];
 		$animalJuan->animalPengId = $row['animal_peng_id'];
 		$animalJuan->createTime = $row['create_time'];

@@ -3,7 +3,7 @@
  * Class that operate on table 'animal_eartag'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2013-10-14 22:30
+ * @date: 2013-10-16 22:39
  */
 class AnimalEartagMySqlDAO implements AnimalEartagDAO{
 
@@ -73,6 +73,9 @@ class AnimalEartagMySqlDAO implements AnimalEartagDAO{
 
 		$id = $this->executeInsert($sqlQuery);	
 		$animalEartag->id = $id;
+
+		//INSERT INTO t able1 VALUES(1),(2),(3),(4),(5);
+
 		return $id;
 	}
 	

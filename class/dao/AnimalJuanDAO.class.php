@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2013-10-14 22:30
+ * @date: 2013-10-16 22:39
  */
 interface AnimalJuanDAO{
 
@@ -51,9 +51,9 @@ interface AnimalJuanDAO{
 	 */
 	public function clean();
 
-	public function queryByName($value);
+	public function queryByJuanName($value);
 
-	public function queryBySerialnumber($value);
+	public function queryByJuanSerialnumber($value);
 
 	public function queryByAnimalFarmId($value);
 
@@ -62,9 +62,9 @@ interface AnimalJuanDAO{
 	public function queryByCreateTime($value);
 
 
-	public function deleteByName($value);
+	public function deleteByJuanName($value);
 
-	public function deleteBySerialnumber($value);
+	public function deleteByJuanSerialnumber($value);
 
 	public function deleteByAnimalFarmId($value);
 

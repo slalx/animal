@@ -1,10 +1,12 @@
 <?php
+	require_once($_SERVER['DOCUMENT_ROOT'].'/parts/inc/encode.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/parts/inc/session.php');
+		//include all DAO files
+	require_once('../include_dao.php');
 
-	session_start();
 	$farmId = $_SESSION['ANIMAL_FARM_ID'];
 
-	//include all DAO files
-	require_once('../include_dao.php');
+
 
 		
 	//start new transaction
@@ -25,7 +27,7 @@
 	$transaction->commit();
 
 	$resObj->status = 1;
-	$resObj->statusText = 'succ save';
+	$resObj->statusText = '保存成功';
 	echo json_encode($resObj);
 
 ?>
