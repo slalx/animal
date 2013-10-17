@@ -1,9 +1,4 @@
 	<!-- start: JavaScript-->
-	<!--[if !IE]>-->
-
-			<script src="assets/js/jquery-2.0.3.js"></script>
-
-	<!--<![endif]-->
 
 	<!--[if IE]>
 	

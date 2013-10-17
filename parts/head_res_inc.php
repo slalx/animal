@@ -26,6 +26,12 @@
 		
 	<![endif]-->
 	
+	<!--[if !IE]>-->
+
+			<script src="assets/js/jquery-2.0.3.js"></script>
+
+	<!--<![endif]-->
+
 	<!-- start: Favicon and Touch Icons -->
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
